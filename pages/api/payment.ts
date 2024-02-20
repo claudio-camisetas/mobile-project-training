@@ -5,7 +5,7 @@ type ResponseData = {
 }
 
 function numberRandomizer() {
-  return Math.floor(Math.random() * (25999 - 25900 + 1)) + 25900
+  return Math.floor(Math.random() * (199 - 100 + 1)) + 100
 }
 
 export default async function handler(
