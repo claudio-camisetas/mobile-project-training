@@ -7,14 +7,17 @@ import 'react-toastify/dist/ReactToastify.css'
 const Payment = () => {
   const [seconds, setSeconds] = useState(5 * 60)
   const inputRef: LegacyRef<HTMLInputElement> | undefined = createRef()
-  const [paymentData, setPaymentData] = useState(
-    sessionStorage.getItem('paymentData')
-      ? JSON.parse(sessionStorage.getItem('paymentData')!)
-      : {
-          qr_code: '',
-          payment_link: ''
-        }
-  )
+  let paymentData, setPaymentData
+  if (typeof window !== 'undefined') {
+    [paymentData, setPaymentData] = useState(
+      sessionStorage.getItem('paymentData')
+        ? JSON.parse(sessionStorage.getItem('paymentData')!)
+        : {
+            qr_code: '',
+            payment_link: ''
+          }
+    )
+  }
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
@@ -34,7 +37,9 @@ const Payment = () => {
       const response = await fetch('/api/payment')
       const data = await response.json()
       setPaymentData(data)
-      sessionStorage.setItem('paymentData', JSON.stringify(data))
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('paymentData', JSON.stringify(data))
+      }
     }
     handleRequest()
   }, [])
@@ -96,7 +101,7 @@ const Payment = () => {
                   <p className='message-copie'> Copie a chave abaixo e utilize a opção  <br /> <span>PIX Copia e Cola:</span>
                   </p>
                   <input type='text' className='key-pix-input copy_digitable_line'
-                    value={paymentData.payment_link || 'Carregando...'}
+                    value={paymentData?.payment_link || 'Carregando...'}
                     readOnly />
                   <input id='key_pix_digitable_line' type='hidden'
                     value='00020101021226790014br.gov.bcb.pix2557brcode.starkinfra.com/v2/81f065d1539544d4960adf11d53d86935204000053039865802BR5925Suitpay Instituicao de Pa6007Goiania62070503***6304D07F'
@@ -170,8 +175,8 @@ const Payment = () => {
                 <div className='content-pix content-pix-web col-12 text-center'>
                   <p className='countdown'> O código expira em: &nbsp; <span>{formatTime(seconds)}</span></p>
                   <div className='hr-horizontal-100'></div>
-                  {paymentData.qr_code ? <img className='qrcode'
-                    src={paymentData.qr_code}
+                  {paymentData?.qr_code ? <img className='qrcode'
+                    src={paymentData?.qr_code}
                     alt='QrCode Pix'
                   /> : <div className='loader-container'>
                     <span className="loader"></span>
@@ -179,7 +184,7 @@ const Payment = () => {
                   <div className='hr-horizontal-percentage'></div>
                   <p className='message-copie'> Se preferir, pague com a opção &nbsp; <span>PIX Copia e Cola:</span></p>
                   <input type='text' className='key-pix-input copy_digitable_line'
-                    value={paymentData.payment_link || 'Carregando...'}
+                    value={paymentData?.payment_link || 'Carregando...'}
                     readOnly />
                   <input id='key_pix_digitable_line' type='hidden'
                     ref={inputRef}
