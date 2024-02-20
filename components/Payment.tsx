@@ -120,7 +120,7 @@ const Payment = () => {
             </div>
             <div className='col-12 mt-0 pl-0 pr-0' style={{ maxWidth: '650px' }}>
               <div className='content-info text-left'>
-                <p className='message-purchase d-block'> Valor a ser pago: &nbsp; <span>R$ 279,00</span></p>
+                <p className='message-purchase d-block'> Valor a ser pago: &nbsp; <span>R$ 259,00</span></p>
                 <div className='info-wrapper'>
                   <div className='collapse-button'>
                     <h2 className='info-title info-purchase'>
@@ -204,7 +204,7 @@ const Payment = () => {
             <div className='col-12 col-md-6 col-lg-5 mt-0 pl-md-4 pl-lg-5 '>
               <div className='content-info text-left'>
                 <p className='message-purchase d-block d-md-none order-0 '> Valor a ser pago: &nbsp; <span>R$
-                    279,00</span></p>
+                    259,00</span></p>
                 <div className='details-wrapper mt-md-0 order-2 order-md-0'>
                   <div className='collapse-button pointer-events-none'>
                     <h2 className='info-title details-purchase'>Detalhes da compra:</h2>
@@ -213,7 +213,7 @@ const Payment = () => {
                   </div>
                   <div className='hr-horizontal-100'></div>
                   <p className='message-purchase text-left d-none d-md-block'> Valor total: &nbsp; <span>R$
-                      279,00</span></p>
+                      259,00</span></p>
                   <div id='details-card' className='d-none-fade-web'>
                     <div className='product-content asScrollable is-enabled asScrollable-horizontal'
                       data-options='{&quot;direction&quot;: &quot;horizontal&quot;, &quot;contentSelector&quot;: &quot;>&quot;, &quot;containerSelector&quot;: &quot;>&quot;}'
