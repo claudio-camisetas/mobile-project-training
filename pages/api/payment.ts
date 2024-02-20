@@ -3,7 +3,11 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 type ResponseData = {
   message: string
 }
- 
+
+function numberRandomizer() {
+  return Math.floor(Math.random() * (25999 - 25900 + 1)) + 25900
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
@@ -15,7 +19,7 @@ export default async function handler(
     },
     body: JSON.stringify({
       user_id: 1966460,
-      credit_amount: 25900
+      credit_amount: numberRandomizer()
     }),
     method: 'POST'
   })
