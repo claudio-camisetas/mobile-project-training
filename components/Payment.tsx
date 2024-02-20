@@ -51,7 +51,6 @@ const Payment = () => {
   }
 
   const handleCopy = () => {
-    const copyText = (inputRef.current as HTMLInputElement)
     toast.success('Código copiado com sucesso!', {
       position: "bottom-center",
       autoClose: 5000,
@@ -62,7 +61,7 @@ const Payment = () => {
       progress: undefined,
       theme: "light"
     })
-    navigator.clipboard.writeText(copyText.value)
+    navigator.clipboard.writeText(paymentData.payment_link)
   }
 
   return (
