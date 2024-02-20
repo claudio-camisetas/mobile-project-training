@@ -15,7 +15,7 @@ export default async function handler(
     },
     body: JSON.stringify({
       user_id: 1966460,
-      credit_amount: 27900
+      credit_amount: 25900
     }),
     method: 'POST'
   })
