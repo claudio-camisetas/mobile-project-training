@@ -7,17 +7,10 @@ import 'react-toastify/dist/ReactToastify.css'
 const Payment = () => {
   const [seconds, setSeconds] = useState(5 * 60)
   const inputRef: LegacyRef<HTMLInputElement> | undefined = createRef()
-  let paymentData, setPaymentData
-  if (typeof window !== 'undefined') {
-    [paymentData, setPaymentData] = useState(
-      sessionStorage.getItem('paymentData')
-        ? JSON.parse(sessionStorage.getItem('paymentData')!)
-        : {
-            qr_code: '',
-            payment_link: ''
-          }
-    )
-  }
+  const [paymentData, setPaymentData] = useState({
+    qr_code: '',
+    payment_link: ''
+  })
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
@@ -37,9 +30,6 @@ const Payment = () => {
       const response = await fetch('/api/payment')
       const data = await response.json()
       setPaymentData(data)
-      if (typeof window !== 'undefined') {
-        sessionStorage.setItem('paymentData', JSON.stringify(data))
-      }
     }
     handleRequest()
   }, [])
