@@ -67,7 +67,7 @@ const Payment = () => {
 
   return (
     <>
-      <link rel='stylesheet' href='./payment/style.css' />
+      <link rel='stylesheet' href='./payment.css' />
       <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap' rel='stylesheet' />
       <link rel='apple-touch-icon' href='https://cloudfox-digital-products.s3.amazonaws.com/uploads/user/2RmA83E5213PVpY/public/stores/DPVYB34NLLGKzkJ/logo/5HdXRVwApiTBYCoY8CVnKrD8TvMw4XdoqqOmhdno.png' />
       <link rel='icon' href='https://cloudfox-digital-products.s3.amazonaws.com/uploads/user/2RmA83E5213PVpY/public/stores/DPVYB34NLLGKzkJ/logo/5HdXRVwApiTBYCoY8CVnKrD8TvMw4XdoqqOmhdno.png' />
